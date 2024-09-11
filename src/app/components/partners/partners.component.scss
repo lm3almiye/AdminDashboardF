@@ -1,0 +1,184 @@
+/* General container styling for the DataView items */
+.p-dataview .p-dataview-content {
+    background: var(--surface-0); /* Use surface-0 for background */
+    color: var(--text-color);     /* Default text color */
+    padding: 1rem;                /* Padding around the content */
+}
+
+/* Flexbox layout for each DataView item */
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.sm\:flex-row {
+    flex-direction: row;
+}
+
+.sm\:align-items-center {
+    align-items: center;
+}
+
+.md\:flex-row {
+    flex-direction: row;
+}
+
+.md\:align-items-center {
+    align-items: center;
+}
+
+/* Responsive design settings */
+@media (max-width: 768px) {
+    .sm\:flex-row {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) {
+    .sm\:flex-row {
+        flex-direction: row;
+    }
+}
+
+/* Grid styling for wrapping the items */
+.grid.grid-nogutter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 -0.5rem;
+}
+
+/* Grid column styling for DataView items */
+.col-12 {
+    flex: 0 0 100%;
+    padding: 0.5rem;
+}
+
+.md\:w-10rem {
+    width: 10rem;
+}
+
+/* Styling for the image container */
+.relative {
+    position: relative;
+}
+
+.block {
+    display: block;
+}
+
+.xl\:block {
+    display: block;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.border-round {
+    border-radius: var(--border-radius);
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* Styling for the company name and other text elements */
+.text-secondary {
+    color: var(--text-color-secondary);
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-900 {
+    color: var(--surface-900);
+}
+
+/* Styling for the location and rating badge */
+.surface-100 {
+    background-color: var(--surface-100);
+}
+
+.surface-0 {
+    background-color: var(--surface-0);
+}
+
+.p-1 {
+    padding: 0.25rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.border-radius-30 {
+    border-radius: 30px;
+}
+
+/* Box shadow for the rating badge */
+.shadow-md {
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+/* Text color and layout for the phone number */
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+/* Button layout */
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.white-space-nowrap {
+    white-space: nowrap;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-5 {
+    gap: 1.25rem;
+}
+
+/* Utility classes for setting the border */
+.border-top-1 {
+    border-top-width: 1px;
+}
+
+.surface-border {
+    border-color: var(--surface-border);
+}
+.red{
+    color: red;
+}

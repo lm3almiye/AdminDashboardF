@@ -1,0 +1,63 @@
+<div class="justify-between h-18 px-4" style="padding-top: 15px;">
+
+  <div class="flex items-center justify-between">
+      <div class="p-1 flex flex-col">
+          <h1 class="text-2xl font-bold p-1" style="color: aliceblue;">All Tasks</h1>
+      </div>
+
+      <div class="flex items-center">
+          <button class="p-3 bg-black text-white rounded-lg" (click)="showDialog()">+ New Task</button>
+      </div>
+  </div>
+
+</div>
+<p-dialog header="Add Task" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <span class="p-text-secondary block mb-5">Enter Task Information.</span>
+  <form [formGroup]="tacheForm">
+  <div class="flex align-items-center gap-3 mb-3">
+      <label for="username" class="font-semibold w-20">Name</label>
+      <input pInputText formControlName="name" id="username" class="flex-auto" autocomplete="off" placeholder="jib 9ahwa" />
+  </div>
+  <div class="flex align-items-center gap-3 mb-5">
+      <label for="date" class="font-semibold w-20">Deadline</label>
+      <input pInputText formControlName="deadline" id="date" class="flex-auto" autocomplete="off" placeholder="dd/mm/yyyy" />
+  </div>
+  <div class="flex align-items-center gap-3 mb-5">
+    <label for="username" class="font-semibold w-20">User ID</label>
+    <input pInputText formControlName="utilisateurId" id="number" class="flex-auto" autocomplete="off" placeholder="user id" />
+</div>
+</form>
+  <div class="flex gap-2" style="justify-content: center;">
+      <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+      <p-button label="Save" (onClick)="createTask()" />
+  </div>
+</p-dialog>
+
+<div class="flex overflow-auto h-5/6 p-2"> 
+    <div *ngFor="let column of columns" 
+      class="flex flex-col bg-gray-100 m-4 p-4 rounded-lg border shadow-lg h-screen overflow-auto flex-shrink-0"
+      style="width: 23%;"
+      pDroppable 
+      (drop)="drop($event, column.id)"
+      (dragover)="dragOver($event)"
+      >
+      <h1 class="pb-4 font-bold h-10">{{column.name}}</h1>
+        <div class="flex flex-col h-screen">
+            <div 
+            class="flex flex-col bg-white rounded-lg h-28 px-6 py-2 justify-center shadow-md text-sm mb-2"
+                *ngFor="let task of getTasksForColumn(column.id)" 
+                draggable="true" 
+                (dragstart)="dragStart($event, task)" 
+                (dragend)="dragEnd($event)">
+                <div class="flex justify-between py-2">
+                  <p class="font-bold">{{task.name}}</p> 
+                  <button (click)="deleteTask(task.id)"><img src="assets/0.png" style="width: 30px;"></button>
+                </div>
+                    <div class="flex justify-between py-2">
+                      <p class="text-gray-400">Deadline: {{ task.deadline | date: 'dd/MM/yyyy' }}</p>
+                      <button class="rounded-lg bg-green-100 px-2 py-1">User {{task.utilisateurId }}</button>
+                    </div>
+        </div>
+          </div>
+    </div>
+  </div>

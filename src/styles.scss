@@ -1,0 +1,26 @@
+@import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body, html, app-root, p, h1, h2, h3, h4{
+    height: 100%;
+
+}
+app-root{
+    display: flex;
+    flex-direction: column;
+}
+html {
+    background-image: url('./assets/background.svg');
+    background-size: cover;
+
+    overflow-y: auto !important;
+}
