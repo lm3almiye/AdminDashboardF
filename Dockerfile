@@ -18,6 +18,9 @@ RUN npm run build
 # Step 2: Serve the Angular app using Nginx
 FROM nginx:1.27.1-alpine
 
+# Copy the custom Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy the built Angular app from the previous stage to the Nginx HTML directory
 COPY --from=build /app/dist/kanban-proj /usr/share/nginx/html
 
